@@ -1,0 +1,29 @@
+[GLOBAL]
+pants_version = "2.17.0"
+pythonpath = ["%(buildroot)s/pants-plugins"]
+backend_packages = [
+  "pants.backend.python"
+]
+
+[anonymous-telemetry]
+enabled = false
+
+[source]
+root_patterns = [
+    "/**/src",
+    "/**/tests",
+]
+
+[python]
+enable_resolves = true
+interpreter_constraints = [">=3.7"]
+
+[python.resolves]
+python-default = "pants.lock"
+
+[test]
+use_coverage = true
+
+[coverage-py]
+report = "raw"
+output_dir = "."
